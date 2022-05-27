@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :labeled_offerings
   resources :tags
   resources :contact_us_messages
   resources :comments
