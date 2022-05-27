@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @offering.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @offering.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @offering.image %>
+</p>
+
+<p>
+  <strong>Min age:</strong>
+  <%= @offering.min_age %>
+</p>
+
+<p>
+  <strong>Max age:</strong>
+  <%= @offering.max_age %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @offering.address %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @offering.price %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @offering.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @offering.time %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @offering.video %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @offering.status %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @offering.seller_id %>
+</p>
+
+<p>
+  <strong>Comments count:</strong>
+  <%= @offering.comments_count %>
+</p>
+
+<p>
+  <strong>Labeled offerings count:</strong>
+  <%= @offering.labeled_offerings_count %>
+</p>
+
+<p>
+  <strong>Saves count:</strong>
+  <%= @offering.saves_count %>
+</p>
+
+<%= link_to 'Edit', edit_offering_path(@offering) %> |
+<%= link_to 'Back', offerings_path %>

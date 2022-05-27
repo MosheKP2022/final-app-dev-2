@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Offerings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Min age</th>
+      <th>Max age</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Video</th>
+      <th>Status</th>
+      <th>Seller</th>
+      <th>Comments count</th>
+      <th>Labeled offerings count</th>
+      <th>Saves count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offerings.each do |offering| %>
+      <tr>
+        <td><%= offering.title %></td>
+        <td><%= offering.description %></td>
+        <td><%= offering.image %></td>
+        <td><%= offering.min_age %></td>
+        <td><%= offering.max_age %></td>
+        <td><%= offering.address %></td>
+        <td><%= offering.price %></td>
+        <td><%= offering.date %></td>
+        <td><%= offering.time %></td>
+        <td><%= offering.video %></td>
+        <td><%= offering.status %></td>
+        <td><%= offering.seller_id %></td>
+        <td><%= offering.comments_count %></td>
+        <td><%= offering.labeled_offerings_count %></td>
+        <td><%= offering.saves_count %></td>
+        <td><%= link_to 'Show', offering %></td>
+        <td><%= link_to 'Edit', edit_offering_path(offering) %></td>
+        <td><%= link_to 'Destroy', offering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offering', new_offering_path %>

@@ -1,0 +1,92 @@
+<%= form_with(model: offering) do |form| %>
+  <% if offering.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
+
+      <ul>
+        <% offering.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min_age %>
+    <%= form.text_field :min_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_age %>
+    <%= form.text_field :max_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.text_field :video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seller_id %>
+    <%= form.text_field :seller_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments_count %>
+    <%= form.number_field :comments_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :labeled_offerings_count %>
+    <%= form.number_field :labeled_offerings_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :saves_count %>
+    <%= form.number_field :saves_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
