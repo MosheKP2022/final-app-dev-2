@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commenter: one
+  offering: one
+  body: MyText
+  private: false
+
+two:
+  commenter: two
+  offering: two
+  body: MyText
+  private: false
