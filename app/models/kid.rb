@@ -13,4 +13,9 @@
 #  updated_at           :datetime         not null
 #
 class Kid < ApplicationRecord
+
+  has_many :parents, through: :family_members, source: :parent
+  
+  has_many :family_members, dependent: :destroy
+
 end

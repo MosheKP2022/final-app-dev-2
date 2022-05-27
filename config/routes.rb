@@ -2,6 +2,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :family_members
   resources :kids
   devise_for :users
 
