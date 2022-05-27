@@ -2,6 +2,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :kids
   devise_for :users
 
   root "offerings#index"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_214259) do
+ActiveRecord::Schema.define(version: 2022_05_27_215414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2022_05_27_214259) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_contact_us_messages_on_user_id"
+  end
+
+  create_table "kids", force: :cascade do |t|
+    t.citext "first_name"
+    t.citext "last_name"
+    t.date "dob"
+    t.text "about_me"
+    t.citext "school"
+    t.integer "family_members_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "labeled_offerings", force: :cascade do |t|
