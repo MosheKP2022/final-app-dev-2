@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contact_us_messages
   resources :comments
   resources :offerings
   devise_for :users

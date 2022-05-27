@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_211720) do
+ActiveRecord::Schema.define(version: 2022_05_27_212809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2022_05_27_211720) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commenter_id"], name: "index_comments_on_commenter_id"
     t.index ["offering_id"], name: "index_comments_on_offering_id"
+  end
+
+  create_table "contact_us_messages", force: :cascade do |t|
+    t.citext "title"
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contact_us_messages_on_user_id"
   end
 
   create_table "offerings", force: :cascade do |t|
@@ -75,5 +84,6 @@ ActiveRecord::Schema.define(version: 2022_05_27_211720) do
 
   add_foreign_key "comments", "offerings"
   add_foreign_key "comments", "users", column: "commenter_id"
+  add_foreign_key "contact_us_messages", "users"
   add_foreign_key "offerings", "users", column: "seller_id"
 end
