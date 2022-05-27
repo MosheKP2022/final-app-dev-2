@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Offering:</strong>
+  <%= @safe.offering_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @safe.user %>
+</p>
+
+<%= link_to 'Edit', edit_safe_path(@safe) %> |
+<%= link_to 'Back', saves_path %>

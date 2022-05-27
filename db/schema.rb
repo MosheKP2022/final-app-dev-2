@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_220933) do
+ActiveRecord::Schema.define(version: 2022_05_27_221443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2022_05_27_220933) do
     t.index ["seller_id"], name: "index_offerings_on_seller_id"
   end
 
+  create_table "saves", force: :cascade do |t|
+    t.bigint "offering_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offering_id"], name: "index_saves_on_offering_id"
+    t.index ["user_id"], name: "index_saves_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.integer "labeled_offerings_count"
     t.datetime "created_at", precision: 6, null: false
@@ -116,4 +125,6 @@ ActiveRecord::Schema.define(version: 2022_05_27_220933) do
   add_foreign_key "labeled_offerings", "offerings"
   add_foreign_key "labeled_offerings", "tags"
   add_foreign_key "offerings", "users", column: "seller_id"
+  add_foreign_key "saves", "offerings"
+  add_foreign_key "saves", "users"
 end
