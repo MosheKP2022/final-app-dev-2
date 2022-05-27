@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_192251) do
+ActiveRecord::Schema.define(version: 2022_05_27_200627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "offerings", force: :cascade do |t|
+    t.citext "title"
+    t.text "description"
+    t.string "image"
+    t.float "min_age"
+    t.float "max_age"
+    t.citext "address"
+    t.float "price"
+    t.date "date"
+    t.time "time"
+    t.string "video"
+    t.citext "status"
+    t.bigint "seller_id", null: false
+    t.integer "comments_count", default: 0
+    t.integer "labeled_offerings_count", default: 0
+    t.integer "saves_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["seller_id"], name: "index_offerings_on_seller_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.citext "email", default: "", null: false
@@ -41,4 +62,5 @@ ActiveRecord::Schema.define(version: 2022_05_27_192251) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offerings", "users", column: "seller_id"
 end
