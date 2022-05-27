@@ -8,5 +8,8 @@ class User < ApplicationRecord
 
   has_many :comments, foreign_key: "commenter_id"
 
-  
+  has_many :contact_us_messages
+
+
+
 end
