@@ -19,6 +19,6 @@
 #  fk_rails_...  (parent_id => users.id)
 #
 class FamilyMember < ApplicationRecord
-  belongs_to :parent_id
-  belongs_to :kid_id
+  belongs_to :parent, class_name: "User"
+  belongs_to :kid
 end

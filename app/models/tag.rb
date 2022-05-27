@@ -9,6 +9,8 @@
 #
 class Tag < ApplicationRecord
 
-  has_many :offerings, through: :labeled_offerings, source: :offering
+  has_many :labeled_offerings
+
+  has_many :offerings, through: :labeled_offerings
 
 end

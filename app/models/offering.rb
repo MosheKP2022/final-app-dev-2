@@ -34,6 +34,10 @@ class Offering < ApplicationRecord
 
   has_many :labeled_offerings
 
-  has_many :tags, through: :labeled_offerings, source: :tags
+  has_many :saves
+
+  has_many :users_who_saved, through: :saves
+
+  has_many :tags, through: :labeled_offerings
 
 end

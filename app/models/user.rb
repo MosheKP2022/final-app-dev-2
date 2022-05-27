@@ -36,6 +36,15 @@ class User < ApplicationRecord
 
   has_many :contact_us_messages
 
+  has_many :family_members
+
+  has_many :saves
+
+  has_many :kids, through: :family_members
+
+  has_many :saved_offerings, through: :saves
+
+
 
 
 end
