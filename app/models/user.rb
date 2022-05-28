@@ -44,4 +44,17 @@ class User < ApplicationRecord
 
   has_many :saved_offerings, through: :saves, source: :offering
 
+  validates :phone, presence: true, numericality: true, uniqueness: true
+
+  validates :last_name, presence: true
+
+  validates :first_name, presence: true
+
+  validates :admin, presence: true
+
+
+
+
+
+
 end

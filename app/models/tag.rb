@@ -13,4 +13,6 @@ class Tag < ApplicationRecord
 
   has_many :offerings, through: :labeled_offerings
 
+  validates :name, presence: true
+
 end

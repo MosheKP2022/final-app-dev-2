@@ -23,4 +23,7 @@
 class Comment < ApplicationRecord
   belongs_to :commenter, class_name: "User", counter_cache: true
   belongs_to :offering, counter_cache: true
+
+  validates :body, presence: true
+  
 end

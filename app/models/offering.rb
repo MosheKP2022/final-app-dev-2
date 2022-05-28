@@ -42,4 +42,21 @@ class Offering < ApplicationRecord
 
   has_many :tags, through: :labeled_offerings
 
+  validates :title, presence: true
+
+  validates :description, presence: true
+
+  validates :min_age, presence: true
+
+  validates :max_age, presence: true
+
+  validates :price, presence: true
+
+  validates :address, presence: true
+
+  validates :price, numericality: :greater_than_or_equal_to: 0
+
+  validates :min_age, numericality: :greater_than_or_equal_to: 0
+
+
 end
