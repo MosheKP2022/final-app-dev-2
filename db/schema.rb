@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_230606) do
+ActiveRecord::Schema.define(version: 2022_05_28_002854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 2022_05_27_230606) do
     t.text "about_me"
     t.boolean "admin"
     t.integer "comments_count", default: 0
-    t.integer "messages_to_administrators_count", default: 0
     t.integer "offerings_count", default: 0
     t.integer "kids_count", default: 0
     t.integer "saves_count", default: 0
