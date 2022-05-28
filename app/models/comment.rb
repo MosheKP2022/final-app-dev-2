@@ -21,6 +21,6 @@
 #  fk_rails_...  (offering_id => offerings.id)
 #
 class Comment < ApplicationRecord
-  belongs_to :commenter, class_name: "User"
-  belongs_to :offering
+  belongs_to :commenter, class_name: "User", counter_cache: true
+  belongs_to :offering, counter_cache: true
 end

@@ -19,6 +19,6 @@
 #  fk_rails_...  (tag_id => tags.id)
 #
 class LabeledOffering < ApplicationRecord
-  belongs_to :offering
-  belongs_to :tag
+  belongs_to :offering, counter_cache: true
+  belongs_to :tag, counter_cache: true
 end

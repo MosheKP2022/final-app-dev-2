@@ -8,6 +8,7 @@
 #  family_members_count :integer          default(0)
 #  first_name           :citext
 #  last_name            :citext
+#  parents_count        :integer          default(0)
 #  school               :citext
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null

@@ -28,7 +28,7 @@
 #
 class Offering < ApplicationRecord
 
-  belongs_to :seller, class_name: "User"
+  belongs_to :seller, class_name: "User", counter_cache: true
 
   has_many :comments
 

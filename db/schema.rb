@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_221443) do
+ActiveRecord::Schema.define(version: 2022_05_27_230606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_05_27_221443) do
     t.integer "family_members_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "parents_count", default: 0
   end
 
   create_table "labeled_offerings", force: :cascade do |t|
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 2022_05_27_221443) do
     t.integer "saves_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "contact_us_messages_count", default: 0
     t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

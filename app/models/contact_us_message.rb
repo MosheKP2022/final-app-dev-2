@@ -17,5 +17,5 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class ContactUsMessage < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 end

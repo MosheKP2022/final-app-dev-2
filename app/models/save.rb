@@ -19,7 +19,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Save < ApplicationRecord
-  belongs_to :offering
-  belongs_to :user
+  belongs_to :offering, counter_cache: true
+  belongs_to :user, counter_cache: true
 
 end

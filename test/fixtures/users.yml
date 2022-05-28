@@ -6,6 +6,7 @@
 #  about_me                         :text
 #  admin                            :boolean
 #  comments_count                   :integer          default(0)
+#  contact_us_messages_count        :integer          default(0)
 #  encrypted_password               :string           default(""), not null
 #  kids_count                       :integer          default(0)
 #  messages_to_administrators_count :integer          default(0)

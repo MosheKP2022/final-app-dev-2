@@ -19,6 +19,6 @@
 #  fk_rails_...  (parent_id => users.id)
 #
 class FamilyMember < ApplicationRecord
-  belongs_to :parent, class_name: "User"
-  belongs_to :kid
+  belongs_to :parent, class_name: "User", counter_cache: :kids_count
+  belongs_to :kid, counter_cache: :parents_count
 end
