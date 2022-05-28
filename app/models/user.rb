@@ -42,6 +42,6 @@ class User < ApplicationRecord
 
   has_many :kids, through: :family_members
 
-  has_many :saved_offerings, through: :saves
+  has_many :saved_offerings, through: :saves, source: :offering
 
 end
