@@ -44,7 +44,4 @@ class User < ApplicationRecord
 
   has_many :saved_offerings, through: :saves
 
-
-
-
 end

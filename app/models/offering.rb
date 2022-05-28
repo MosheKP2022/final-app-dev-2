@@ -36,7 +36,9 @@ class Offering < ApplicationRecord
 
   has_many :saves
 
-  has_many :users_who_saved, through: :saves
+  has_many :cold_leads, through: :saves, source: :user
+
+  has_many :warm_leads, through: :comments, source: :commenter
 
   has_many :tags, through: :labeled_offerings
 
