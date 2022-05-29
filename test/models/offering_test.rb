@@ -3,6 +3,7 @@
 # Table name: offerings
 #
 #  id                      :bigint           not null, primary key
+#  address                 :citext
 #  comments_count          :integer          default(0)
 #  date                    :date
 #  description             :text
@@ -12,7 +13,9 @@
 #  min_age                 :float
 #  price                   :float
 #  saves_count             :integer          default(0)
+#  status                  :citext
 #  time                    :time
+#  title                   :citext
 #  video                   :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null

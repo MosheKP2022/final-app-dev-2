@@ -4,6 +4,7 @@
 #
 #  id                      :bigint           not null, primary key
 #  labeled_offerings_count :integer
+#  name                    :citext
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #

@@ -4,11 +4,15 @@
 #
 #  id                        :bigint           not null, primary key
 #  about_me                  :text
+#  address                   :citext
 #  admin                     :boolean
 #  comments_count            :integer          default(0)
 #  contact_us_messages_count :integer          default(0)
+#  email                     :citext           default(""), not null
 #  encrypted_password        :string           default(""), not null
+#  first_name                :citext
 #  kids_count                :integer          default(0)
+#  last_name                 :citext
 #  offerings_count           :integer          default(0)
 #  phone                     :integer
 #  profile_picture           :string
@@ -21,6 +25,7 @@
 #
 # Indexes
 #
+#  index_users_on_email                 (email) UNIQUE
 #  index_users_on_phone                 (phone) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
