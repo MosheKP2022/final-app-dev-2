@@ -72,4 +72,5 @@ group :development do
   gem "rubocop-rspec", require: false
   gem 'skylight'
   gem 'web_git', github: 'firstdraft/web_git'
+  gem 'rails_db', '>= 2.3.1'
 end
