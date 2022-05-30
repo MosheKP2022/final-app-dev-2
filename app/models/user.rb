@@ -49,7 +49,7 @@ class User < ApplicationRecord
 
   has_many :saved_offerings, through: :saves, source: :offering
 
-  validates :phone, presence: true, numericality: true, uniqueness: true
+  validates :phone, presence: true, uniqueness: true
 
   validates :last_name, presence: true
 
