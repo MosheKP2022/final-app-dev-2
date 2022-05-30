@@ -14,7 +14,7 @@
 #  kids_count                :integer          default(0)
 #  last_name                 :citext
 #  offerings_count           :integer          default(0)
-#  phone                     :integer
+#  phone                     :bigint
 #  profile_picture           :string
 #  remember_created_at       :datetime
 #  reset_password_sent_at    :datetime

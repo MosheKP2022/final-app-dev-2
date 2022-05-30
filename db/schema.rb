@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_28_002854) do
+ActiveRecord::Schema.define(version: 2022_05_30_164441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2022_05_28_002854) do
     t.citext "first_name"
     t.citext "last_name"
     t.string "profile_picture"
-    t.integer "phone"
+    t.bigint "phone"
     t.citext "address"
     t.text "about_me"
     t.boolean "admin"
