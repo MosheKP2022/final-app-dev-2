@@ -3,7 +3,7 @@ task sample_data: :environment  do
 
 
 
-# if Rails.env.development?
+if Rails.env.development?
 # ContactUsMessage.delete_all
 # Comment.delete_all
 # FamilyMembers.delete_all
@@ -11,20 +11,20 @@ task sample_data: :environment  do
 # Save.delete_all
 # LabeledOffering.delete_all
 # Kid.delete_all
-# User.delete_all
+User.delete_all
 # Offering.delete_all
-# end
+end
 
-people = Array.new(20) do
+people = Array.new(10) do
   {
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    last_name: Faker::Name.unique.last_name,
     admin: [false]
-    # phone: "#{rand(1..9)}#{rand(1..9)}"
+    
   }
 end
 
-people << { first_name: "Moshe", last_name: "Kult Perry", admin: true }
+people << { first_name: "Moshe", last_name: "KultPerry", admin: true }
 # people << { first_name: "Bob", last_name: "Smith" }
 # people << { first_name: "Carol", last_name: "Smith" }
 # people << { first_name: "Doug", last_name: "Smith" }
@@ -35,7 +35,7 @@ people.each do |person|
 
   user = User.create(
 
-    email: "#{person[:first_name]}.#{person[:first_name]}@example.com",
+    email: "#{person[:first_name]}.#{person[:last_name]}@example.com",
     password: "password",
     first_name: person[:first_name],
     last_name: person[:first_name],
@@ -48,4 +48,16 @@ people.each do |person|
 
   p user.errors.full_messages
 end
+
+
+
+
+
+
+
+
+
+
+
+p "There are now #{User.count} users."
 end
