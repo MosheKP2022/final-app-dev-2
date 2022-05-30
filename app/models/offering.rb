@@ -33,11 +33,11 @@ class Offering < ApplicationRecord
 
   belongs_to :seller, class_name: "User", counter_cache: true
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_many :labeled_offerings
+  has_many :labeled_offerings, dependent: :destroy
 
-  has_many :saves
+  has_many :saves, dependent: :destroy
 
   has_many :cold_leads, through: :saves, source: :user
 

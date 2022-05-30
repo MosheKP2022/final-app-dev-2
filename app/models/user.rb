@@ -35,15 +35,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :own_offerings, class_name: "offering", foreign_key: "seller_id"
+  has_many :own_offerings, class_name: "offering", foreign_key: "seller_id", dependent: :destroy
 
   has_many :comments, foreign_key: "commenter_id"
 
-  has_many :contact_us_messages
+  has_many :contact_us_messages, dependent: :nullify
 
-  has_many :family_members
+  has_many :family_members, dependent: :destroy
 
-  has_many :saves
+  has_many :saves, dependent: :destroy
 
   has_many :kids, through: :family_members
 
