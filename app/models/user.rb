@@ -55,7 +55,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
 
-  validates :admin, presence: true
+  # validates :admin, presence: true
 
 
 
