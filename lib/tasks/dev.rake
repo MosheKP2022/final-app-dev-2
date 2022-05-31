@@ -7,7 +7,7 @@ if Rails.env.development?
 ContactUsMessage.delete_all
 Comment.delete_all
 FamilyMember.delete_all
-# Tag.delete_all
+Tag.delete_all
 Save.delete_all
 # LabeledOffering.delete_all
 Kid.delete_all
@@ -120,11 +120,30 @@ end
       end
           if rand < 0.5
             offering.cold_leads << user
-          end
-        
+          end 
+    end
+  end
 
-end
-end
+    lables = Array.new
+    
+    lables << {name: "Books"}
+    lables << {name: "Clothes"}
+    lables << {name: "Cars"}
+    lables << {name: "Building Blocks"}
+    lables << {name: "Dolls"}
+     
+    p lables 
+    lables.each do |lable|
+      tag = Tag.create(
+         name: lable[:name]
+      )
+    
+      p tag.errors.full_messages
+    
+    end
+
+
+
 
 
 
@@ -140,4 +159,5 @@ p "There are now #{Comment.count} comments."
 p "There are now #{ContactUsMessage.count} contact_us_messages."
 p "There are now #{FamilyMember.count} family members."
 p "There are now #{Save.count} saves."
+p "There are now #{Tag.count} tags."
 end
