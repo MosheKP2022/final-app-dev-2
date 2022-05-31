@@ -21,8 +21,8 @@
 
 one:
   offering: one
-  user: 1
+  user: one
 
 two:
   offering: two
-  user: 1
+  user: two

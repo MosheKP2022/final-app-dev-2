@@ -1,1 +1,1 @@
-json.array! @saves, partial: "saves/safe", as: :safe
+json.array! @saves, partial: "saves/save", as: :save

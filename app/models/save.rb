@@ -22,4 +22,5 @@ class Save < ApplicationRecord
   belongs_to :offering, counter_cache: true
   belongs_to :user, counter_cache: true
 
+
 end

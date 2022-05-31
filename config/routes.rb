@@ -2,11 +2,11 @@
 #
 
 Rails.application.routes.draw do
+  resources :saves
   root "offerings#index"
 
   devise_for :users
 
-  resources :saves
   resources :family_members
   resources :kids
   resources :labeled_offerings
