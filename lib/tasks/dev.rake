@@ -10,7 +10,7 @@ if Rails.env.development?
 # Tag.delete_all
 # Save.delete_all
 # LabeledOffering.delete_all
-# Kid.delete_all
+Kid.delete_all
 Offering.delete_all
 User.delete_all
 end
@@ -46,6 +46,33 @@ people << { first_name: "Moshe", last_name: "Kult Perry", admin: true }
   p user.errors.full_messages
 end
 
+Children = Array.new(20) do
+  {
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.unique.last_name,
+    dob: Faker::Date.between(from: '2017-05-31', to: '2022-05-31'),
+    school: Faker::University.name
+  }
+end
+
+Children << { first_name: "Shalev", last_name: "Kult Perry", dob: '2020-04-29' }
+
+  Children.each do |child|
+    first_name = child.fetch(:first_name).gsub(/\s+/, "")
+    last_name = child.fetch(:last_name).gsub(/\s+/, "")
+
+  kid = Kid.create(
+
+    first_name: first_name,
+    last_name: last_name,
+    dob: child[:dob],
+    school: child[:school]
+  )
+
+  p kid.errors.full_messages
+end
+
+
   users = User.all 
   users.each do |user|
   rand(5).times do
@@ -76,5 +103,6 @@ end
 
 
 p "There are now #{User.count} users."
+p "There are now #{Kid.count} kids."
 p "There are now #{Offering.count} offerings."
 end
