@@ -2,13 +2,13 @@
 #
 
 Rails.application.routes.draw do
+  root "offerings#index"
+
+  devise_for :users
+
   resources :saves
   resources :family_members
   resources :kids
-  devise_for :users
-
-  root "offerings#index"
-
   resources :labeled_offerings
   resources :tags
   resources :contact_us_messages

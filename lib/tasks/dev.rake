@@ -152,15 +152,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
 p "There are now #{User.count} users."
 p "There are now #{Kid.count} kids."
 p "There are now #{Offering.count} offerings."
