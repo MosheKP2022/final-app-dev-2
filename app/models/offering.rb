@@ -48,9 +48,9 @@ class Offering < ApplicationRecord
 
   validates :description, presence: true
 
-  validates :min_age, presence: true
+  validates :min_age, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  validates :max_age, presence: true
+  validates :max_age, presence: true, numericality: { greater_than_or_equal_to: :min_age, less_than: 99 }
 
   validates :price, presence: true
 

@@ -35,7 +35,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :own_offerings, class_name: "offering", foreign_key: "seller_id", dependent: :destroy
+  has_many :own_offerings, class_name: "Offering", foreign_key: "seller_id", dependent: :destroy
 
   has_many :comments, foreign_key: "commenter_id"
 

@@ -11,8 +11,8 @@ if Rails.env.development?
 # Save.delete_all
 # LabeledOffering.delete_all
 # Kid.delete_all
+Offering.delete_all
 User.delete_all
-# Offering.delete_all
 end
 
 people = Array.new(10) do
@@ -46,7 +46,26 @@ people << { first_name: "Moshe", last_name: "Kult Perry", admin: true }
   p user.errors.full_messages
 end
 
+  users = User.all 
+  users.each do |user|
+  rand(5).times do
+    min_age = rand(0..3.5).round(2)
+    max_age = min_age + rand(0.1..5.5).round(2)
+    offering = user.own_offerings.create(
+      title: Faker::Games::Pokemon.name,
+      description:Faker::Games::Pokemon.move,
+      image: "https://robohash.org/#{rand(100000000)}",
+      min_age: min_age,
+      max_age: max_age,
+      address: Faker::Address.street_address,
+      price: rand(1.1..10.1).round(2),
+      status: Offering.statuses.keys.sample
 
+    )
+      
+    p offering.errors.full_messages
+    end  
+  end
 
 
 
@@ -57,4 +76,5 @@ end
 
 
 p "There are now #{User.count} users."
+p "There are now #{Offering.count} offerings."
 end
