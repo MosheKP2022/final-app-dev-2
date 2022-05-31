@@ -8,7 +8,7 @@ ContactUsMessage.delete_all
 Comment.delete_all
 FamilyMember.delete_all
 # Tag.delete_all
-# Save.delete_all
+Save.delete_all
 # LabeledOffering.delete_all
 Kid.delete_all
 Offering.delete_all
@@ -80,7 +80,7 @@ end
   sample_users = users.sample
   sample_users.children << kid
   end
-  
+
   users.each do |user|
   
   rand(5).times do
@@ -108,7 +108,7 @@ end
       )
 
       p comment.errors.full_messages
-
+    end
       if rand < 0.25
         contact_us_message = user.contact_us_messages.create(
           title:Faker::Movies::HarryPotter.spell, 
@@ -117,11 +117,12 @@ end
         )
   
         p contact_us_message.errors.full_messages
+      end
+          if rand < 0.5
+            offering.cold_leads << user
+          end
+        
 
-        
-        
-    end  
-  end
 end
 end
 
@@ -138,4 +139,5 @@ p "There are now #{Offering.count} offerings."
 p "There are now #{Comment.count} comments."
 p "There are now #{ContactUsMessage.count} contact_us_messages."
 p "There are now #{FamilyMember.count} family members."
+p "There are now #{Save.count} saves."
 end
