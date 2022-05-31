@@ -7,9 +7,9 @@ if Rails.env.development?
 ContactUsMessage.delete_all
 Comment.delete_all
 FamilyMember.delete_all
-Tag.delete_all
 Save.delete_all
-# LabeledOffering.delete_all
+LabeledOffering.delete_all
+Tag.delete_all
 Kid.delete_all
 Offering.delete_all
 User.delete_all
@@ -72,6 +72,24 @@ Children << { first_name: "Shalev", last_name: "Kult Perry", dob: '2020-04-29' }
   p kid.errors.full_messages
 end
 
+
+lables = Array.new
+    
+lables << {name: "Books"}
+lables << {name: "Clothes"}
+lables << {name: "Cars"}
+lables << {name: "Building Blocks"}
+lables << {name: "Dolls"}
+ 
+lables.each do |lable|
+  tag = Tag.create(
+     name: lable[:name]
+  )
+
+  p tag.errors.full_messages
+
+end
+
   users = User.all 
   
  
@@ -100,6 +118,12 @@ end
       
     p offering.errors.full_messages
 
+    if rand < 0.9
+    tags = Tag.all
+    sample_tags = tags.sample
+    offering.tags << sample_tags
+    end
+
     if rand < 0.45
       comment = offering.comments.create(
         body: Faker::Quote.jack_handey,
@@ -109,6 +133,8 @@ end
 
       p comment.errors.full_messages
     end
+
+    
       if rand < 0.25
         contact_us_message = user.contact_us_messages.create(
           title:Faker::Movies::HarryPotter.spell, 
@@ -124,23 +150,6 @@ end
     end
   end
 
-    lables = Array.new
-    
-    lables << {name: "Books"}
-    lables << {name: "Clothes"}
-    lables << {name: "Cars"}
-    lables << {name: "Building Blocks"}
-    lables << {name: "Dolls"}
-     
-    p lables 
-    lables.each do |lable|
-      tag = Tag.create(
-         name: lable[:name]
-      )
-    
-      p tag.errors.full_messages
-    
-    end
 
 
 
@@ -160,4 +169,5 @@ p "There are now #{ContactUsMessage.count} contact_us_messages."
 p "There are now #{FamilyMember.count} family members."
 p "There are now #{Save.count} saves."
 p "There are now #{Tag.count} tags."
+p "There are now #{LabeledOffering.count} labeled offerings."
 end
