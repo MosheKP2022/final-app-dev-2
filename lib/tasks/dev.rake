@@ -4,9 +4,9 @@ task sample_data: :environment  do
 
 
 if Rails.env.development?
-# ContactUsMessage.delete_all
+ContactUsMessage.delete_all
 Comment.delete_all
-# FamilyMembers.delete_all
+FamilyMember.delete_all
 # Tag.delete_all
 # Save.delete_all
 # LabeledOffering.delete_all
@@ -72,9 +72,17 @@ Children << { first_name: "Shalev", last_name: "Kult Perry", dob: '2020-04-29' }
   p kid.errors.full_messages
 end
 
-
   users = User.all 
+  
+ 
+  kids = Kid.all
+  kids.each do |kid|
+  sample_users = users.sample
+  sample_users.children << kid
+  end
+  
   users.each do |user|
+  
   rand(5).times do
     min_age = rand(0..3.5).round(2)
     max_age = min_age + rand(0.1..5.5).round(2)
@@ -101,7 +109,7 @@ end
 
       p comment.errors.full_messages
 
-      if rand < 0.1
+      if rand < 0.25
         contact_us_message = user.contact_us_messages.create(
           title:Faker::Movies::HarryPotter.spell, 
           body: Faker::Quote.jack_handey,
@@ -110,6 +118,8 @@ end
   
         p contact_us_message.errors.full_messages
 
+        
+        
     end  
   end
 end
@@ -127,4 +137,5 @@ p "There are now #{Kid.count} kids."
 p "There are now #{Offering.count} offerings."
 p "There are now #{Comment.count} comments."
 p "There are now #{ContactUsMessage.count} contact_us_messages."
+p "There are now #{FamilyMember.count} family members."
 end

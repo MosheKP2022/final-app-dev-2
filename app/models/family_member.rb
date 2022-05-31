@@ -21,4 +21,7 @@
 class FamilyMember < ApplicationRecord
   belongs_to :parent, class_name: "User", counter_cache: :kids_count
   belongs_to :kid, counter_cache: :parents_count
+
+  validates :kid, presence: true
+
 end

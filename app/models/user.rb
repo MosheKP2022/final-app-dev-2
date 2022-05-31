@@ -41,11 +41,11 @@ class User < ApplicationRecord
 
   has_many :contact_us_messages, dependent: :nullify
 
-  has_many :family_members, dependent: :destroy
+  has_many :family_members, foreign_key: "parent_id", dependent: :destroy
 
   has_many :saves, dependent: :destroy
 
-  has_many :kids, through: :family_members
+  has_many :children, through: :family_members, source: :kid 
 
   has_many :saved_offerings, through: :saves, source: :offering
 
@@ -54,6 +54,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   validates :first_name, presence: true
+
+  # validates :children, uniqueness: true
 
   # validates :admin, presence: true
 
