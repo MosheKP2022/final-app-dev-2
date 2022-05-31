@@ -5,7 +5,7 @@ task sample_data: :environment  do
 
 if Rails.env.development?
 # ContactUsMessage.delete_all
-# Comment.delete_all
+Comment.delete_all
 # FamilyMembers.delete_all
 # Tag.delete_all
 # Save.delete_all
@@ -91,9 +91,29 @@ end
     )
       
     p offering.errors.full_messages
+
+    if rand < 0.45
+      comment = offering.comments.create(
+        body: Faker::Quote.jack_handey,
+        commenter: user,
+        private: [true, false].sample
+      )
+
+      p comment.errors.full_messages
+
+      if rand < 0.1
+        contact_us_message = user.contact_us_messages.create(
+          title:Faker::Movies::HarryPotter.spell, 
+          body: Faker::Quote.jack_handey,
+          user: user
+        )
+  
+        p contact_us_message.errors.full_messages
+
     end  
   end
-
+end
+end
 
 
 
@@ -105,4 +125,6 @@ end
 p "There are now #{User.count} users."
 p "There are now #{Kid.count} kids."
 p "There are now #{Offering.count} offerings."
+p "There are now #{Comment.count} comments."
+p "There are now #{ContactUsMessage.count} contact_us_messages."
 end
