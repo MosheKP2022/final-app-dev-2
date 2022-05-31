@@ -24,19 +24,19 @@ people = Array.new(10) do
   }
 end
 
-people << { first_name: "Moshe", last_name: "KultPerry", admin: true }
+people << { first_name: "Moshe", last_name: "Kult Perry", admin: true }
 
-people.each do |person|
-  # first_name = person.fetch(:first_name)
-  # last_name = person.fetch(:last_name)
+  people.each do |person|
+  first_name = person.fetch(:first_name).gsub(/\s+/, "")
+  last_name = person.fetch(:last_name).gsub(/\s+/, "")
 
   user = User.create(
 
-    email: "#{person[:first_name]}.#{person[:last_name]}@example.com",
+    email: "#{first_name}.#{last_name}@example.com",
     password: "password",
-    first_name: person[:first_name],
-    last_name: person[:last_name],
-    phone: 10.times.map{rand(10)}.join.to_i,
+    first_name: first_name,
+    last_name: last_name,
+    phone: Faker::PhoneNumber.unique.cell_phone_in_e164,
     address: Faker::Address.street_address,
     about_me: Faker::Movie.quote,
     admin: person[:admin],
