@@ -3,18 +3,18 @@
 Hello <%= current_user.first_name %> <%= current_user.last_name %>
 </h1>
 
-<h2>
+<h3>
 Own offerings
-</h2>
+</h3>
+
+<div class="row row-cols-3 row-cols-md-3">
 
 <% current_user.own_offerings.each do |offering| %>
-<div class="row mb-4">
-  <div class="col-md-6 offset-md-3">
-
+  <div class="col mb-4">
 <div class="card">
- <%= image_tag offering.image, class: "card-img-top", alt: "..." %> 
-
   <div class="card-body">
+    <p class="card-text"> Status: <%= offering.status %>  | created <%= offering.created_at %> ago </p>
+  <%= image_tag offering.image, class: "card-img-top", alt: "..." %> 
     <h4 class="card-title"><%= offering.title %></h4>
     <p class="card-text"> Description: <%= offering.description %></p>
   </div>
@@ -22,7 +22,8 @@ Own offerings
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Min age: <%= offering.min_age %> | Max age: <%= offering.max_age %></li>
     <li class="list-group-item">Price: $<%= offering.price %></li>
-    <li class="list-group-item">Status: <%= offering.status %></li>
+    <li class="list-group-item">Seller: <%= offering.seller.first_name %> <%= offering.seller.last_name %></li>
+    <li class="list-group-item">Pick up address: <%= offering.address %> </li>
   </ul>
     <ul class="list-group list-group-flush"> 
     <h6 class= "title"> Public comments:
@@ -30,31 +31,27 @@ Own offerings
     <% offering.comments.each do |comment| %>
     <li class="list-group-item">
       <div class="media">
-        <img src="..." class="mr-3" alt="...">
+        <img src="..." class="mr-3" alt="..." >
         <div class="media-body">
           <h5 class="mt-0"> <%= comment.commenter.first_name %></h5>
           <p> <%= comment.body %> </p>
         </div>
       </div>
-
-    
     </li>
     <% end %>
   </ul>
-
+  
   <div class="card-body">
 <%= render "comments/form", comment: offering.comments.build %>
-
-
   <div class="card-body">
     <a href="#" class="card-link">Chat with seller</a>
-    <a href="#" class="card-link">Watch video (if applicable)</a>
- 
-      <%#= render "offerings/offering", offering: offering %>
+    <%= link_to 'details', offering_path(offering), class: "card-link" %>
+    
    </div>
       </div>
     </div>
   </div>
-</div>
+
  
 <% end %>
+</div>

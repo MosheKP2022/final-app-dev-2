@@ -1,53 +1,35 @@
-<p id="notice"><%= notice %></p>
+
+
+<h1>
+<%= @offering.title %> 
+</h1>
+
+<h4>
+<%= @offering.description %>
+</h4>
 
 <p>
-  <strong>Title:</strong>
-  <%= @offering.title %>
+ <%= image_tag @offering.image %> 
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @offering.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @offering.image %>
-</p>
-
-<p>
-  <strong>Min age:</strong>
+  <strong>Child's min age:</strong>
   <%= @offering.min_age %>
 </p>
 
 <p>
-  <strong>Max age:</strong>
+  <strong>Child's max age:</strong>
   <%= @offering.max_age %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Address for pick up:</strong>
   <%= @offering.address %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @offering.price %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @offering.date %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @offering.time %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @offering.video %>
+  $<%= @offering.price %>
 </p>
 
 <p>
@@ -57,23 +39,42 @@
 
 <p>
   <strong>Seller:</strong>
-  <%= @offering.seller_id %>
-</p>
+  <%= @offering.seller.first_name %> <%= @offering.seller.last_name %>
+
 
 <p>
-  <strong>Comments count:</strong>
-  <%= @offering.comments_count %>
+<%= link_to "Chat with seller", root_path %>
 </p>
 
-<p>
-  <strong>Labeled offerings count:</strong>
-  <%= @offering.labeled_offerings_count %>
+  <small>This offering has been saved <%= @offering.saves_count %> times so far</small>
 </p>
 
-<p>
-  <strong>Saves count:</strong>
-  <%= @offering.saves_count %>
-</p>
+<hr>
+<h6 class= "title"> 
+Public comments:
+</h6>
+
+<% @offering.comments.each do |comment| %>
+    <div class="row row-cols-1 row-cols-md-1">
+    <div class="col mb-4">
+    <div class="card">
+      <div class="media">
+        <img src="..." class="mr-3" alt="..." >
+        <div class="media-body">
+          <h6 class="mt-0"> <%= comment.commenter.first_name %> <%= comment.commenter.last_name %></h6>
+          <p> <%= comment.body %> </p>
+        </div>
+      </div>
+    </li>
+ </div>
+
+    <% end %>
+
+<%= render "comments/form", comment: @offering.comments.build %>
+
+
+
+
 
 <%= link_to 'Edit', edit_offering_path(@offering) %> |
 <%= link_to 'Back', offerings_path %>
