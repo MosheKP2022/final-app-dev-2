@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: %i[ profile ]
+before_action :show, only: %i[ profile ]
 
 private
 
-  def set_user
+  def show
     if current_user
       render user_path
     else
