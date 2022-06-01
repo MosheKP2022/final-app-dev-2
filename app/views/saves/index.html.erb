@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Saves</h1>
 
@@ -12,13 +12,13 @@
   </thead>
 
   <tbody>
-    <% @saves.each do |safe| %>
+    <% @saves.each do |save| %>
       <tr>
-        <td><%= safe.offering_id %></td>
-        <td><%= safe.user %></td>
-        <td><%= link_to 'Show', safe %></td>
-        <td><%= link_to 'Edit', edit_safe_path(safe) %></td>
-        <td><%= link_to 'Destroy', safe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= save.offering_id %></td>
+        <td><%= save.user_id %></td>
+        <td><%= link_to 'Show', save %></td>
+        <td><%= link_to 'Edit', edit_save_path(save) %></td>
+        <td><%= link_to 'Destroy', save, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Safe', new_safe_path %>
+<%= link_to 'New Save', new_save_path %>

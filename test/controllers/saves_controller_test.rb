@@ -2,7 +2,7 @@ require "test_helper"
 
 class SavesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @safe = saves(:one)
+    @save = saves(:one)
   end
 
   test "should get index" do
@@ -11,36 +11,36 @@ class SavesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_safe_url
+    get new_save_url
     assert_response :success
   end
 
-  test "should create safe" do
+  test "should create save" do
     assert_difference('Save.count') do
-      post saves_url, params: { safe: { offering_id: @safe.offering_id, user: @safe.user } }
+      post saves_url, params: { save: { offering_id: @save.offering_id, user_id: @save.user_id } }
     end
 
-    assert_redirected_to safe_url(Save.last)
+    assert_redirected_to save_url(Save.last)
   end
 
-  test "should show safe" do
-    get safe_url(@safe)
+  test "should show save" do
+    get save_url(@save)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_safe_url(@safe)
+    get edit_save_url(@save)
     assert_response :success
   end
 
-  test "should update safe" do
-    patch safe_url(@safe), params: { safe: { offering_id: @safe.offering_id, user: @safe.user } }
-    assert_redirected_to safe_url(@safe)
+  test "should update save" do
+    patch save_url(@save), params: { save: { offering_id: @save.offering_id, user_id: @save.user_id } }
+    assert_redirected_to save_url(@save)
   end
 
-  test "should destroy safe" do
+  test "should destroy save" do
     assert_difference('Save.count', -1) do
-      delete safe_url(@safe)
+      delete save_url(@save)
     end
 
     assert_redirected_to saves_url

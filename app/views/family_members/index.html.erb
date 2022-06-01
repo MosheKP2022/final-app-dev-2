@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Family Members</h1>
 
@@ -14,8 +14,8 @@
   <tbody>
     <% @family_members.each do |family_member| %>
       <tr>
-        <td><%= family_member.parent_id_id %></td>
-        <td><%= family_member.kid_id_id %></td>
+        <td><%= family_member.parent_id %></td>
+        <td><%= family_member.kid_id %></td>
         <td><%= link_to 'Show', family_member %></td>
         <td><%= link_to 'Edit', edit_family_member_path(family_member) %></td>
         <td><%= link_to 'Destroy', family_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>

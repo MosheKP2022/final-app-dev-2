@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class SavesTest < ApplicationSystemTestCase
   setup do
-    @safe = saves(:one)
+    @save = saves(:one)
   end
 
   test "visiting the index" do
@@ -14,8 +14,8 @@ class SavesTest < ApplicationSystemTestCase
     visit saves_url
     click_on "New Save"
 
-    fill_in "Offering", with: @safe.offering_id
-    fill_in "User", with: @safe.user
+    fill_in "Offering", with: @save.offering_id
+    fill_in "User", with: @save.user_id
     click_on "Create Save"
 
     assert_text "Save was successfully created"
@@ -26,8 +26,8 @@ class SavesTest < ApplicationSystemTestCase
     visit saves_url
     click_on "Edit", match: :first
 
-    fill_in "Offering", with: @safe.offering_id
-    fill_in "User", with: @safe.user
+    fill_in "Offering", with: @save.offering_id
+    fill_in "User", with: @save.user_id
     click_on "Update Save"
 
     assert_text "Save was successfully updated"

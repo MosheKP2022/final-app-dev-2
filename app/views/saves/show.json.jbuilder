@@ -1,1 +1,1 @@
-json.partial! "saves/safe", safe: @safe
+json.partial! "saves/save", save: @save
