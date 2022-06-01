@@ -1,1 +1,39 @@
-hi
+
+<h1>
+Hello <%= current_user.first_name %> <%= current_user.last_name %>
+</h1>
+
+<h2>
+Own offerings
+</h2>
+
+<% current_user.own_offerings.each do |offering| %>
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+
+<div class="card">
+ <%= image_tag offering.image, class: "card-img-top", alt: "..." %> 
+
+  <div class="card-body">
+    <h5 class="card-title"><%= offering.title %></h5>
+    <p class="card-text"> Description: <%= offering.description %></p>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Min age: <%= offering.min_age %> | Max age: <%= offering.max_age %></li>
+    <li class="list-group-item">Price: $<%= offering.price %></li>
+    <li class="list-group-item">Status: <%= offering.status %></li>
+  </ul>
+
+  <div class="card-body">
+    <a href="#" class="card-link">Chat with seller</a>
+    <a href="#" class="card-link">Watch video (if applicable)</a>
+ 
+      <%#= render "offerings/offering", offering: offering %>
+  
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<% end %>
