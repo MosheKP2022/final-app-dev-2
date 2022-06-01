@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root "offerings#index"
 
+ 
   devise_for :users
 
   resources :family_members
@@ -15,8 +16,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :offerings
   resources :saves
+  # resources :users, only: :show
 
-  # get ":first_name" => "users#show", as: :user
+
+  get "users/profile" => "users#profile", as: :user
   # get ":username/liked" => "users#liked", as: :liked
   # get ":username/feed" => "users#feed", as: :feed
   # get ":username/discover" => "users#discover", as: :discover
