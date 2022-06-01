@@ -2,7 +2,7 @@
 #
 
 Rails.application.routes.draw do
-  resources :saves
+
   root "offerings#index"
 
   devise_for :users
@@ -14,6 +14,14 @@ Rails.application.routes.draw do
   resources :contact_us_messages
   resources :comments
   resources :offerings
+  resources :saves
+
+  # get ":first_name" => "users#show", as: :user
+  # get ":username/liked" => "users#liked", as: :liked
+  # get ":username/feed" => "users#feed", as: :feed
+  # get ":username/discover" => "users#discover", as: :discover
+  # get ":username/followers" => "users#followers", as: :followers
+  # get ":username/following" => "users#following", as: :following
 
  
 
