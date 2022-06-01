@@ -13,17 +13,23 @@ Own offerings
   <div class="col mb-4">
 <div class="card">
   <div class="card-body">
-    <p class="card-text"> Status: <strong> <%= offering.status %> </strong>   | created <%= offering.created_at %> ago </p>
+    <p class="card-text"> Status: <strong> <%= offering.status %> </strong>   | created <%= time_ago_in_words(offering.created_at) %> ago </p>
   <%= image_tag offering.image, class: "card-img-top", alt: "..." %> 
     <h4 class="card-title"><%= offering.title %></h4>
     <p class="card-text"> Description: <%= offering.description %></p>
   </div>
 
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Min age: <%= offering.min_age %> | Max age: <%= offering.max_age %></li>
+    <li class="list-group-item">Child's Min age: <%= offering.min_age %> | Max age: <%= offering.max_age %></li>
     <li class="list-group-item">Price: $<%= offering.price %></li>
     <li class="list-group-item">Seller: <%= offering.seller.first_name %> <%= offering.seller.last_name %></li>
-    <li class="list-group-item">Pick up address: <%= offering.address %> </li>
+    <li class="list-group-item">Address for pick up: <%= offering.address %> </li>
+    <li class="list-group-item">Tag: 
+    <% offering.tags.each do |tag| %>
+    <%= tag.name %>
+    <% end %>
+    
+     </li>
   </ul>
     
   <div class="card-body">

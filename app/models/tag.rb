@@ -10,7 +10,7 @@
 #
 class Tag < ApplicationRecord
 
-  has_many :labeled_offerings
+  has_many :labeled_offerings, dependent: :destroy
 
   has_many :offerings, through: :labeled_offerings
 

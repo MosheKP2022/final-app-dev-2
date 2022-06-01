@@ -17,6 +17,7 @@
       <th>Video</th>
       <th>Status</th>
       <th>Seller</th>
+      <th>Tag</th>
       <th>Comments count</th>
       <th>Labeled offerings count</th>
       <th>Saves count</th>
@@ -39,6 +40,9 @@
         <td><%= offering.video %></td>
         <td><%= offering.status %></td>
         <td><%= offering.seller_id %></td>
+        <td><% offering.tags.each do |tag| %>
+              <%= tag.name %>
+              <% end %></td>
         <td><%= offering.comments_count %></td>
         <td><%= offering.labeled_offerings_count %></td>
         <td><%= offering.saves_count %></td>
@@ -53,3 +57,4 @@
 <br>
 
 <%= link_to 'New Offering', new_offering_path %>
+
