@@ -3,9 +3,9 @@
 Hello <%= current_user.first_name %> <%= current_user.last_name %>
 </h1>
 
-<h3>
+<h4>
 Own offerings
-</h3>
+</h4>
 
 <div class="row row-cols-3 row-cols-md-3">
 
@@ -13,7 +13,7 @@ Own offerings
   <div class="col mb-4">
 <div class="card">
   <div class="card-body">
-    <p class="card-text"> Status: <%= offering.status %>  | created <%= offering.created_at %> ago </p>
+    <p class="card-text"> Status: <strong> <%= offering.status %> </strong>   | created <%= offering.created_at %> ago </p>
   <%= image_tag offering.image, class: "card-img-top", alt: "..." %> 
     <h4 class="card-title"><%= offering.title %></h4>
     <p class="card-text"> Description: <%= offering.description %></p>
@@ -25,29 +25,12 @@ Own offerings
     <li class="list-group-item">Seller: <%= offering.seller.first_name %> <%= offering.seller.last_name %></li>
     <li class="list-group-item">Pick up address: <%= offering.address %> </li>
   </ul>
-    <ul class="list-group list-group-flush"> 
-    <h6 class= "title"> Public comments:
-    </h6>
-    <% offering.comments.each do |comment| %>
-    <li class="list-group-item">
-      <div class="media">
-        <img src="..." class="mr-3" alt="..." >
-        <div class="media-body">
-          <h5 class="mt-0"> <%= comment.commenter.first_name %></h5>
-          <p> <%= comment.body %> </p>
-        </div>
-      </div>
-    </li>
-    <% end %>
-  </ul>
-  
-  <div class="card-body">
-<%= render "comments/form", comment: offering.comments.build %>
+    
   <div class="card-body">
     <a href="#" class="card-link">Chat with seller</a>
     <%= link_to 'details', offering_path(offering), class: "card-link" %>
     
-   </div>
+
       </div>
     </div>
   </div>
