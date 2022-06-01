@@ -15,7 +15,7 @@ Own offerings
  <%= image_tag offering.image, class: "card-img-top", alt: "..." %> 
 
   <div class="card-body">
-    <h5 class="card-title"><%= offering.title %></h5>
+    <h4 class="card-title"><%= offering.title %></h4>
     <p class="card-text"> Description: <%= offering.description %></p>
   </div>
 
@@ -24,13 +24,34 @@ Own offerings
     <li class="list-group-item">Price: $<%= offering.price %></li>
     <li class="list-group-item">Status: <%= offering.status %></li>
   </ul>
+    <ul class="list-group list-group-flush"> 
+    <h6 class= "title"> Public comments:
+    </h6>
+    <% offering.comments.each do |comment| %>
+    <li class="list-group-item">
+      <div class="media">
+        <img src="..." class="mr-3" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0"> <%= comment.commenter.first_name %></h5>
+          <p> <%= comment.body %> </p>
+        </div>
+      </div>
+
+    
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="card-body">
+<%= render "comments/form", comment: offering.comments.build %>
+
 
   <div class="card-body">
     <a href="#" class="card-link">Chat with seller</a>
     <a href="#" class="card-link">Watch video (if applicable)</a>
  
       <%#= render "offerings/offering", offering: offering %>
-  
+   </div>
       </div>
     </div>
   </div>

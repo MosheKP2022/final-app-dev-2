@@ -12,13 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :commenter_id %>
-    <%= form.text_field :commenter_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :offering_id %>
-    <%= form.text_field :offering_id %>
+    <%= form.hidden_field :offering_id %>
   </div>
 
   <div class="field">
@@ -27,8 +21,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :private %>
-    <%= form.check_box :private %>
+    <%= form.hidden_field :private , value: false%>
   </div>
 
   <div class="actions">

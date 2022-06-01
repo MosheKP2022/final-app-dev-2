@@ -101,7 +101,7 @@ end
 
   users.each do |user|
   
-  rand(5).times do
+  rand(10).times do
     min_age = rand(0..3.5).round(2)
     max_age = min_age + rand(0.1..5.5).round(2)
     offering = user.own_offerings.create(
@@ -124,10 +124,10 @@ end
     offering.tags << sample_tags
     end
 
-    if rand < 0.45
+    if rand < 0.9
       comment = offering.comments.create(
         body: Faker::Quote.jack_handey,
-        commenter: user,
+        commenter: users.sample,
         private: [true, false].sample
       )
 
