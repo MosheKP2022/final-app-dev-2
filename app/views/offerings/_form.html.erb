@@ -46,13 +46,22 @@
     <%= form.text_field :price %>
   </div>
 
-  <div class="field">
-    <%= form.label :tag %>
-    <%= form.text_field :tag %>
-  </div>
-
+    <div class="field">
+      <select name="tag">
+      <% Tag.all.each do |tag|%> 
+      <option value= <%=tag%>>
+      <%=tag.name%>
+      </option>
+      <%end%>
+      </select>
+      </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+
+    <%#= form.label :tag %>
+    <%#= form.text_field :tag%>
+  </div>
