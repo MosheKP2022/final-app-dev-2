@@ -41,18 +41,13 @@
   <strong>Seller:</strong>
   <%= @offering.seller.first_name %> <%= @offering.seller.last_name %>
 
-
-<p>
-<%= link_to "Chat with seller", root_path %>
-</p>
-
   <small>This offering has been saved <%= @offering.saves_count %> times so far</small>
 </p>
 
 <hr>
-<h6 class= "title"> 
-Public comments:
-</h6>
+<h5 class= "title"> 
+Comments:
+</h5>
 
  <div class="row row-cols-1 row-cols-md-1">
  <div class="col mb-4">

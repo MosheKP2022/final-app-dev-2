@@ -25,7 +25,7 @@ class SavesController < ApplicationController
 
     respond_to do |format|
       if @save.save
-        format.html { redirect_to save_url(@save), notice: "Save was successfully created." }
+        format.html { redirect_back fallback_location: save_url(@save), notice: "Save was successfully created." }
         format.json { render :show, status: :created, location: @save }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class SavesController < ApplicationController
   def update
     respond_to do |format|
       if @save.update(save_params)
-        format.html { redirect_to save_url(@save), notice: "Save was successfully updated." }
+        format.html { redirect_back fallback_location: save_url(@save), notice: "Save was successfully updated." }
         format.json { render :show, status: :ok, location: @save }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class SavesController < ApplicationController
     @save.destroy
 
     respond_to do |format|
-      format.html { redirect_to saves_url, notice: "Save was successfully destroyed." }
+      format.html { redirect_back fallback_location: root_path, notice: "Save was successfully destroyed." }
       format.json { head :no_content }
     end
   end

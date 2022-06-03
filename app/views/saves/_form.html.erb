@@ -11,17 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :offering_id %>
-    <%= form.text_field :offering_id %>
-  </div>
+  
+    <%= form.hidden_field :offering_id %>
+  
+    <%= form.hidden_field :user_id %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.button class: "btn btn-link" do %>
+      <i class="fa-regular fa-bookmark"></i>
+<% end %>
 <% end %>
