@@ -3,9 +3,13 @@
 Hello <%= current_user.first_name %> <%= current_user.last_name %>
 </h1>
 
-<h4>
+<hr>
+
+<h5>
+<strong>
 Own offerings
-</h4>
+</strong>
+</h5>
 
 <div class="row row-cols-3 row-cols-md-3">
 
@@ -14,4 +18,22 @@ Own offerings
 <%= render "offerings/offering", offering: offering %>
  
 <% end %>
+</div>
+
+<hr>
+
+<h5>
+<strong>
+Saved offerings
+</strong>
+</h5>
+
+<div class="row row-cols-3 row-cols-md-3">
+
+<% current_user.saved_offerings.each do |offering| %>
+
+<%= render "offerings/offering", offering: offering %>
+ 
+<% end %>
+
 </div>

@@ -144,8 +144,8 @@ end
   
         p contact_us_message.errors.full_messages
       end
-          if rand < 0.5
-            offering.cold_leads << user
+          if rand < 0.7
+            offering.cold_leads << users.sample
           end 
     end
   end
