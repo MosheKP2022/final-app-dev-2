@@ -1,0 +1,11 @@
+console.log("let's update the comment!")
+
+var updated_comment = $("<%= escape_javascript(render 'comments/comment', comment: @comment) %>");
+
+updated_comment.hide();
+
+$("#<%= dom_id(@comment.offering) %>_<%= dom_id(@comment) %>_form").before(updated_comment);
+
+updated_comment.slideDown();
+
+$("#<%= dom_id(@comment.offering) %>_<%= dom_id(@comment) %>_form").remove();

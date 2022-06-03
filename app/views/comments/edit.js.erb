@@ -1,0 +1,7 @@
+console.log("let's edit the comment!")
+
+$("#<%= dom_id(@comment) %>").remove();
+
+var edited_comment = $("<%= escape_javascript(render 'form', comment: @comment, id: "edit") %>");
+
+$("#<%= dom_id(@comment.offering) %>_new_comment_form").before(edited_comment);

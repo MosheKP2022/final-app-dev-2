@@ -12,23 +12,7 @@
       <%= link_to "Home", root_path, class: "nav-link"  %>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          Resources
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/offerings"> offerings </a>
-          <a class="dropdown-item" href="/comments"> comments </a>        
-          <a class="dropdown-item" href="/kids"> kids </a>
-          <a class="dropdown-item" href="/saves"> saves </a>
-          <a class="dropdown-item" href="/tags"> tags </a>
-          <a class="dropdown-item" href="/labeled_offerings"> labeled_offerings </a>
-          <a class="dropdown-item" href="/contact_us_messages"> contact_us_messages </a>
-          <a class="dropdown-item" href="/family_members"> family_members </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+      
     </ul>
 <ul class="navbar-nav">
         <% if user_signed_in? %>
