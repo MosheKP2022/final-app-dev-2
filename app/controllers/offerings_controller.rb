@@ -24,17 +24,12 @@ class OfferingsController < ApplicationController
     @offering = Offering.new(offering_params)
     @offering.seller = current_user
     @offering.status = "available"
-    @offering.tags << params.fetch(:tag)
-
-    # new_labeled_offering = LabeledOffering.new(
-    #   tag_id: params.fetch(:tag),
-    #   offering_id: @offering.id
-    # )
+    # @offering.tags << params.fetch("tag")
+    
     # if new_labeled_offering.valid?
     #   new_labeled_offering.save
     # else
-    # p new_labeled_offering.errors.full_messages
-    # end
+ 
     respond_to do |format|
       if @offering.save
         format.html { redirect_to offering_url(@offering), notice: "Offering was successfully created." }
@@ -44,7 +39,17 @@ class OfferingsController < ApplicationController
         format.json { render json: @offering.errors, status: :unprocessable_entity }
       end
     end
+
+      new_labeled_offering = LabeledOffering.create(
+        tag_id: params.fetch("tag"),
+        offering_id: @offering.id
+      )
+      if new_labeled_offering.valid?
+        new_labeled_offering.save
+        p new_labeled_offering.errors.full_messages
+      end
   end
+
 
   # PATCH/PUT /offerings/1 or /offerings/1.json
   def update
@@ -77,6 +82,6 @@ class OfferingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def offering_params
-      params.require(:offering).permit(:tag, :title, :description, :image, :min_age, :max_age, :address, :price, :date, :time, :video, :status, :seller_id, :comments_count, :labeled_offerings_count, :saves_count)
+      params.require(:offering).permit(:title, :description, :image, :min_age, :max_age, :address, :price, :date, :time, :video, :status, :seller_id, :comments_count, :labeled_offerings_count, :saves_count)
     end
 end

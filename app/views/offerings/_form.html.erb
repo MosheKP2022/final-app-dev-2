@@ -1,4 +1,4 @@
-<%= form_with(model: offering) do |form| %>
+<%= form_with(url: offerings_path) do %>
   <% if offering.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
@@ -12,56 +12,57 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= label_tag :title %>
+    <%= text_field_tag "offering[title]", @offering.title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= label_tag :description %>
+    <%= text_field_tag "offering[description]", @offering.description, row: 3 %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= label_tag :image %>
+    <%= text_field_tag "offering[image]", @offering.image %>
   </div>
 
   <div class="field">
-    <%= form.label :min_age %>
-    <%= form.text_field :min_age %>
+    <%= label_tag :min_age %>
+    <%= text_field_tag "offering[min_age]", @offering.min_age %>
   </div>
 
   <div class="field">
-    <%= form.label :max_age %>
-    <%= form.text_field :max_age %>
+    <%= label_tag :max_age %>
+    <%= text_field_tag "offering[max_age]", @offering.max_age %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= label_tag :address %>
+    <%= text_field_tag "offering[address]", @offering.address %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= label_tag :price %>
+    <%= text_field_tag "offering[price]", @offering.price %>
   </div>
 
-    <div class="field">
-      <select name="tag">
-      <% Tag.all.each do |tag|%> 
-      <option value= <%=tag%>>
-      <%=tag.name%>
-      </option>
-      <%end%>
-      </select>
-      </div>
+
+    # <div class="field">
+    #   <select name="tag">
+    #   <% Tag.all.each do |tag|%> 
+    #   <option value= <%=tag.id%>>
+    #   <%=tag.name%>
+    #   </option>
+    #   <%end%>
+    #   </select>
+    #   </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= button_tag "Create offering" %>
   </div>
 <% end %>
 
 
     <%#= form.label :tag %>
     <%#= form.text_field :tag%>
-  </div>
