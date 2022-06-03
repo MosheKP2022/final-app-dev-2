@@ -41,39 +41,28 @@
   <strong>Seller:</strong>
   <%= @offering.seller.first_name %> <%= @offering.seller.last_name %>
 
-
-<p>
-<%= link_to "Chat with seller", root_path %>
-</p>
-
   <small>This offering has been saved <%= @offering.saves_count %> times so far</small>
 </p>
 
 <hr>
-<h6 class= "title"> 
-Public comments:
-</h6>
+<h5 class= "title"> 
+Comments:
+</h5>
+
+ <div class="row row-cols-1 row-cols-md-1">
+ <div class="col mb-4">
 
 <% @offering.comments.each do |comment| %>
-    <div class="row row-cols-1 row-cols-md-1">
-    <div class="col mb-4">
-    <div class="card">
-      <div class="media">
-        <img src="..." class="mr-3" alt="..." >
-        <div class="media-body">
-          <h6 class="mt-0"> <%= comment.commenter.first_name %> <%= comment.commenter.last_name %></h6>
-          <p> <%= comment.body %> </p>
-        </div>
-      </div>
-    </li>
- </div>
+   
+   <%= render "comments/comment", comment: comment %>
 
     <% end %>
 
 <%= render "comments/form", comment: @offering.comments.build %>
 
 
-
+</div>
+</div>
 
 
 <%= link_to 'Edit', edit_offering_path(@offering) %> |

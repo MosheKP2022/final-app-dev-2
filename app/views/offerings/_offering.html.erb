@@ -1,0 +1,53 @@
+<div class="col mb-4">
+<div class="card">
+  <div class="card-body">
+
+    <p class="card-text"> Status: <strong> <%= offering.status %> </strong>   | created <%= time_ago_in_words(offering.created_at) %> ago </p>
+  <%= image_tag offering.image, class: "card-img-top", style: "width: 200px" "height: 200px" "float: left" "object-fit: cover" "overflow:hidden"  %> 
+    <h4 class="card-title">
+    <%= offering.title %>
+    <% if current_user == offering.seller %>
+      <%= link_to edit_offering_path(offering), class: "btn btn-link btn-sm text-muted" do %>
+        <i class="fas fa-edit fa-fw"></i>
+      <% end %>
+
+      <%= link_to offering, method: :delete, class: "btn btn-link btn-sm text-muted" do %>
+        <i class="fas fa-trash fa-fw"></i>
+      <% end %>
+      <% end %>
+
+      <% save = current_user.saves.find_by(offering: offering) %>
+
+        <% if save %>
+          <%= link_to save, class: "btn btn-link", method: :delete do %>
+            <i class="fa-solid fa-bookmark"></i>
+
+            Un-save
+          <% end %>
+        <% else %>
+          <%= render "saves/form", save: offering.saves.build(user: current_user) %>
+        <% end %>
+
+    </h4>
+    <p class="card-text"> Description: <%= offering.description %></p>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Child's Min age: <%= offering.min_age %> | Max age: <%= offering.max_age %></li>
+    <li class="list-group-item">Price: $<%= offering.price %></li>
+    <li class="list-group-item">Seller: <%= offering.seller.first_name %> <%= offering.seller.last_name %></li>
+    <li class="list-group-item">Address for pick up: <%= offering.address %> </li>
+    <li class="list-group-item">Tags:
+    <% offering.tags.each do |tag| %>
+    <%= tag.name %>
+    <% end %>
+     </li>
+  </ul>
+    
+  <div class="card-body"> <strong>
+    <%= link_to 'Details & Comments', offering_path(offering), class: "card-link" %>
+    </strong>
+
+      </div>
+    </div>
+  </div>
