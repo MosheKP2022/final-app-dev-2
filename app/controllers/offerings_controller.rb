@@ -24,7 +24,7 @@ class OfferingsController < ApplicationController
     @offering = Offering.new(offering_params)
     @offering.seller = current_user
     @offering.status = "available"
-    # @offering.tags << params.fetch("tag")
+  
     
     # if new_labeled_offering.valid?
     #   new_labeled_offering.save
@@ -39,7 +39,7 @@ class OfferingsController < ApplicationController
         format.json { render json: @offering.errors, status: :unprocessable_entity }
       end
     end
-
+    # @offering.tags << params.fetch("tag")
       new_labeled_offering = LabeledOffering.create(
         tag_id: params.fetch("tag"),
         offering_id: @offering.id

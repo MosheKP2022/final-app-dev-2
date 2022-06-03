@@ -1,6 +1,18 @@
 
 
-<h1>Offerings</h1>
+<h1>Marketplace</h1>
+
+<div class="row row-cols-3 row-cols-md-3">
+
+  <% @offerings.each do |offering| %>
+
+      <% if offering.sold? != true %>
+
+<%= render "offerings/offering", offering: offering %>
+ 
+<% end %>
+<% end %>
+</div>
 
 <table>
   <thead>

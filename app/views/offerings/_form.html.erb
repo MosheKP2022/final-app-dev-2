@@ -46,16 +46,15 @@
     <%= text_field_tag "offering[price]", @offering.price %>
   </div>
 
-
-    # <div class="field">
-    #   <select name="tag">
-    #   <% Tag.all.each do |tag|%> 
-    #   <option value= <%=tag.id%>>
-    #   <%=tag.name%>
-    #   </option>
-    #   <%end%>
-    #   </select>
-    #   </div>
+    <div class="field">
+      <select name="tag">
+      <% Tag.all.each do |tag|%> 
+      <option value= <%=tag.id%>>
+      <%=tag.name%>
+      </option>
+      <%end%>
+      </select>
+      </div>
 
 
   <div class="actions">
