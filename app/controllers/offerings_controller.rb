@@ -84,4 +84,10 @@ class OfferingsController < ApplicationController
     def offering_params
       params.require(:offering).permit(:title, :description, :image, :min_age, :max_age, :address, :price, :date, :time, :video, :status, :seller_id, :comments_count, :labeled_offerings_count, :saves_count)
     end
+
+    
+    # def number_to_currency(price)
+    #   number_to_currency(price)
+    # end
+
 end
