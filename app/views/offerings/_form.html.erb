@@ -1,4 +1,13 @@
-<%= form_with(url: offerings_path) do %>
+<% url = offerings_path %>
+<% method = :post %>
+<% button_text = "Create offering" %>
+<% if offering.persisted? %>
+  <% method = :patch %>
+  <% button_text = "Update offering" %>
+  <% url = offering_path %>
+<% end %>
+
+<%= form_with(url: url, method: method.to_sym) do %>
   <% if offering.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
@@ -49,7 +58,7 @@
   <%= select_tag "tag", options_from_collection_for_select(Tag.all, "id", "name") %>
 
   <div class="actions">
-    <%= button_tag "Create offering" %>
+    <%= button_tag button_text %>
   </div>
 <% end %>
 
