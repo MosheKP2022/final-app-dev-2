@@ -63,6 +63,9 @@ class Offering < ApplicationRecord
   #validates :min_age, numericality: :greater_than_or_equal_to: 0
 
 
-  enum status: { pending: "pending", available: "available", sold: "sold" }
+  enum status: { Pending: "Pending", Available: "Available", Sold: "Sold" }
+
+  # mount_uploader :Image, ImageUploader
+
 
 end
