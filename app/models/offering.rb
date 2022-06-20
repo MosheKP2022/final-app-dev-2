@@ -31,6 +31,8 @@
 #
 class Offering < ApplicationRecord
 
+  mount_uploader :image, ImageUploader
+
   belongs_to :seller, class_name: "User", counter_cache: true
 
   has_many :comments, dependent: :destroy
@@ -55,6 +57,8 @@ class Offering < ApplicationRecord
   validates :price, presence: true
 
   validates :address, presence: true
+  
+  validates :image, presence: true
 
   # validates :title, presence: true, uniqueness: { scope: :user_id, message: "has already posted this offering" }
 
@@ -65,7 +69,7 @@ class Offering < ApplicationRecord
 
   enum status: { Pending: "Pending", Available: "Available", Sold: "Sold" }
 
-  # mount_uploader :Image, ImageUploader
+  
 
 
 end

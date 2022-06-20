@@ -3,7 +3,8 @@
   <div class="card-body">
 
     <p class="card-text"> Status: <strong> <%= offering.status %> </strong>   | created <%= time_ago_in_words(offering.created_at) %> ago </p>
-  <%= image_tag offering.image, class: "card-img-top", style: "width: 200px" "height: 200px" "float: left" "object-fit: cover" "overflow:hidden"  %> 
+    <img src="<%= offering.image %>" class= "card-img-top">
+  <%#= image_tag offering.image, class: "card-img-top", style: "width: 200px" "height: 200px" "float: left" "object-fit: cover" "overflow:hidden"  %> 
     <h4 class="card-title">
     <%= offering.title %>
     <% if current_user == offering.seller %>

@@ -7,7 +7,7 @@
   <% url = offering_path %>
 <% end %>
 
-<%= form_with(url: url, method: method.to_sym) do %>
+<%= form_with(url: url, method: method.to_sym, action: :upload, multipart: true) do %>
   <% if offering.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
@@ -32,7 +32,7 @@
 
   <div class="field">
     <%= label_tag :image %>
-    <%= text_field_tag "offering[image]", @offering.image %>
+    <%= file_field_tag "offering[image]"%>
   </div>
 
   <div class="field">

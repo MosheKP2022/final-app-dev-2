@@ -23,7 +23,7 @@ class OfferingsController < ApplicationController
   def create
     @offering = Offering.new(offering_params)
     @offering.seller = current_user
-    @offering.status = "available"
+    @offering.status = "Available"
   
     
     # if new_labeled_offering.valid?
