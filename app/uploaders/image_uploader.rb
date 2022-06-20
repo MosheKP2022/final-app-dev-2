@@ -20,7 +20,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  "https://robohash.org/#{rand(100000000)}"
+  "/uploads/offering/image/#{rand(1..3)}.jpg"
+  # "https://robohash.org/#{rand(100000000)}"
   end
 
   # Process files as they are uploaded:

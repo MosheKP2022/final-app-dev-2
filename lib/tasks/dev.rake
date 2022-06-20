@@ -107,7 +107,7 @@ end
     offering = user.own_offerings.create(
       title: Faker::Games::Pokemon.name,
       description:Faker::Games::Pokemon.move,
-      image: "https://robohash.org/#{rand(100000000)}",
+      # image: "https://robohash.org/#{rand(100000000)}", public/uploads/offering/image/1.jpg
       min_age: min_age,
       max_age: max_age,
       address: Faker::Address.street_address,
@@ -117,7 +117,7 @@ end
     )
       
     p offering.errors.full_messages
-
+    p "There are now #{Offering.count} offerings."
     if rand < 0.9
     tags = Tag.all
     sample_tags = tags.sample

@@ -58,7 +58,7 @@ class Offering < ApplicationRecord
 
   validates :address, presence: true
   
-  validates :image, presence: true
+  # validates :image, presence: true
 
   # validates :title, presence: true, uniqueness: { scope: :user_id, message: "has already posted this offering" }
 
