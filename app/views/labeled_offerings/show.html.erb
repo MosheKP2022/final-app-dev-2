@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Offering:</strong>
+  <%= @labeled_offering.offering_id %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @labeled_offering.tag_id %>
+</p>
+
+<%= link_to 'Edit', edit_labeled_offering_path(@labeled_offering) %> |
+<%= link_to 'Back', labeled_offerings_path %>

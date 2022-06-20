@@ -1,0 +1,77 @@
+
+
+<h1>
+<%= @offering.title %> 
+</h1>
+
+<h4>
+<%= @offering.description %>
+</h4>
+
+<p>
+ <%= image_tag @offering.image %> 
+</p>
+
+<p>
+  <strong>Child's min age:</strong>
+  <%= @offering.min_age %>
+</p>
+
+<p>
+  <strong>Child's max age:</strong>
+  <%= @offering.max_age %>
+</p>
+
+<p>
+  <strong>Address for pick up:</strong>
+  <%= @offering.address %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  $<%= @offering.price %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @offering.status %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @offering.seller.first_name %> <%= @offering.seller.last_name %>
+</p>
+
+</p>
+    <strong>Tag:</strong>
+  <% @offering.tags.each do |tag| %>
+  <%= tag.name  %>
+  <% end %>
+</p>
+
+  <small>This offering has been saved <%= @offering.saves_count %> times so far</small>
+
+
+<hr>
+<h5 class= "title"> 
+Comments:
+</h5>
+
+ <div class="row row-cols-1 row-cols-md-1">
+ <div class="col mb-4">
+
+<% @offering.comments.each do |comment| %>
+   
+   <%= render "comments/comment", comment: comment %>
+
+    <% end %>
+
+<%= render "comments/form", comment: @offering.comments.build %>
+
+
+</div>
+</div>
+
+
+<%= link_to 'Edit', edit_offering_path(@offering) %> |
+<%= link_to 'Back', offerings_path %>

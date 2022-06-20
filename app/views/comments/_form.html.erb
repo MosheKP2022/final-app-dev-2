@@ -1,0 +1,32 @@
+<li id="<%= dom_id(comment.offering) %>_<%= dom_id(comment) %>_form" class="list-group-item">
+<%= form_with(model: comment, local: false) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :offering_id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :body, "Write a new comment:" %>
+    <%= form.text_area :body, class: "form-control", placeholder: "Write your comment here" %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :private , value: false%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-outline-secondary btn-block" %>
+  </div>
+<% end %>
+</li>

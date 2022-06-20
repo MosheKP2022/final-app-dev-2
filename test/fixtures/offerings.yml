@@ -1,0 +1,65 @@
+# == Schema Information
+#
+# Table name: offerings
+#
+#  id                      :bigint           not null, primary key
+#  address                 :citext
+#  comments_count          :integer          default(0)
+#  date                    :date
+#  description             :text
+#  image                   :string
+#  labeled_offerings_count :integer          default(0)
+#  max_age                 :float
+#  min_age                 :float
+#  price                   :float
+#  saves_count             :integer          default(0)
+#  status                  :citext
+#  time                    :time
+#  title                   :citext
+#  video                   :string
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  seller_id               :bigint           not null
+#
+# Indexes
+#
+#  index_offerings_on_seller_id  (seller_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (seller_id => users.id)
+#
+
+one:
+  title: MyString
+  description: MyText
+  image: MyString
+  min_age: 1.5
+  max_age: 1.5
+  address: MyString
+  price: 1.5
+  date: 2022-05-27
+  time: 2022-05-27 20:06:27
+  video: MyString
+  status: MyString
+  seller: one
+  comments_count: 1
+  labeled_offerings_count: 1
+  saves_count: 1
+
+two:
+  title: MyString
+  description: MyText
+  image: MyString
+  min_age: 1.5
+  max_age: 1.5
+  address: MyString
+  price: 1.5
+  date: 2022-05-27
+  time: 2022-05-27 20:06:27
+  video: MyString
+  status: MyString
+  seller: two
+  comments_count: 1
+  labeled_offerings_count: 1
+  saves_count: 1

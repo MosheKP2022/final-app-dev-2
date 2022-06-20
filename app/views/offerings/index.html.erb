@@ -1,0 +1,21 @@
+
+
+<h1>Marketplace</h1>
+
+<hr>
+
+<div class="row row-cols-3 row-cols-md-3">
+
+  <% @offerings.each do |offering| %>
+
+      <% if offering.sold? != true %>
+
+<%= render "offerings/offering", offering: offering %>
+ 
+<% end %>
+<% end %>
+</div>
+
+
+<%= link_to 'Add New Offering', new_offering_path %>
+

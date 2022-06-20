@@ -1,0 +1,29 @@
+
+
+<h1>Labeled Offerings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offering</th>
+      <th>Tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labeled_offerings.each do |labeled_offering| %>
+      <tr>
+        <td><%= labeled_offering.offering_id %></td>
+        <td><%= labeled_offering.tag_id %></td>
+        <td><%= link_to 'Show', labeled_offering %></td>
+        <td><%= link_to 'Edit', edit_labeled_offering_path(labeled_offering) %></td>
+        <td><%= link_to 'Destroy', labeled_offering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labeled Offering', new_labeled_offering_path %>

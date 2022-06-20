@@ -1,0 +1,22 @@
+<%= form_with(model: save) do |form| %>
+  <% if save.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(save.errors.count, "error") %> prohibited this save from being saved:</h2>
+
+      <ul>
+        <% save.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= form.hidden_field :offering_id %>
+  
+    <%= form.hidden_field :user_id %>
+
+    <%= form.button class: "btn btn-link" do %>
+      <i class="fa-regular fa-bookmark"></i>
+<% end %>
+<% end %>

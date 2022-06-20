@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: kids
+#
+#  id                   :bigint           not null, primary key
+#  about_me             :text
+#  dob                  :date
+#  family_members_count :integer          default(0)
+#  first_name           :citext
+#  last_name            :citext
+#  parents_count        :integer          default(0)
+#  school               :citext
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+one:
+  first_name: MyString
+  last_name: MyString
+  dob: 2022-05-27
+  about_me: MyText
+  school: MyString
+  family_members_count: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  dob: 2022-05-27
+  about_me: MyText
+  school: MyString
+  family_members_count: 1

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @kid.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @kid.last_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @kid.dob %>
+</p>
+
+<p>
+  <strong>About me:</strong>
+  <%= @kid.about_me %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @kid.school %>
+</p>
+
+<p>
+  <strong>Family members count:</strong>
+  <%= @kid.family_members_count %>
+</p>
+
+<%= link_to 'Edit', edit_kid_path(@kid) %> |
+<%= link_to 'Back', kids_path %>

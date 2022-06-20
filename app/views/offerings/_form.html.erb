@@ -1,0 +1,67 @@
+<% url = offerings_path %>
+<% method = :post %>
+<% button_text = "Create offering" %>
+<% if offering.persisted? %>
+  <% method = :patch %>
+  <% button_text = "Update offering" %>
+  <% url = offering_path %>
+<% end %>
+
+<%= form_with(url: url, method: method.to_sym) do %>
+  <% if offering.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
+
+      <ul>
+        <% offering.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :title %>
+    <%= text_field_tag "offering[title]", @offering.title %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :description %>
+    <%= text_field_tag "offering[description]", @offering.description, row: 3 %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :image %>
+    <%= text_field_tag "offering[image]", @offering.image %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :min_age %>
+    <%= text_field_tag "offering[min_age]", @offering.min_age %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :max_age %>
+    <%= text_field_tag "offering[max_age]", @offering.max_age %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :address %>
+    <%= text_field_tag "offering[address]", @offering.address %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :price %>
+    <%= text_field_tag "offering[price]", @offering.price %>
+  </div>
+
+  <%= select_tag "tag", options_from_collection_for_select(Tag.all, "id", "name") %>
+
+  <div class="actions">
+    <%= button_tag button_text %>
+  </div>
+<% end %>
+
+
+    <%#= form.label :tag %>
+    <%#= form.text_field :tag%>
