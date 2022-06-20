@@ -1,6 +1,6 @@
 console.log("<%= @comment.body %>")
 
-var added_comment = $("<%= escape_javascript(render 'comments/comment', comment: @comment) %>");
+var added_comment = $("<%= j(render @comment) %>");
 
 added_comment.hide();
 
